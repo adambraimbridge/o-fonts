@@ -1,14 +1,13 @@
-o-fonts [![Build Status](https://circleci.com/gh/Financial-Times/o-fonts.png?style=shield&circle-token=c29a1b0246bd3bbad4da8e024954af6c8dc04dca)](https://circleci.com/gh/Financial-Times/o-fonts) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
-=================
+# o-fonts [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-_Use `o-fonts` to include Origami provided fonts, or register supported custom fonts._
+Use `o-fonts` to include Origami provided fonts, or register supported custom fonts.
 
 - [Recommended Fonts](#recommended-fonts)
 - [Fonts Included By Default](#fonts-included-by-default)
 - [All Available Fonts](#all-available-fonts)
 - [Sass](#sass)
 - [Contributing](#contributing)
-- [Migration guide](#migration)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -100,13 +99,13 @@ You may also include specific fonts granularly using an options `$opts` map. The
 For example to include recommended fonts used by Origami components and an extra font, `MetricWeb` in a medium weight, and regular `FinancierDisplayWeb`:
 ```scss
 @include oFonts($opts: (
-    'recommended': true,
+	'recommended': true,
 	'metric': (
-        ('weight': 'medium', 'style': 'normal')
-    ),
+		('weight': 'medium', 'style': 'normal')
+	),
 	'financier-display': (
-        ('weight': 'regular', 'style': 'normal')
-    )
+		('weight': 'regular', 'style': 'normal')
+	)
 ));
 ```
 
@@ -132,22 +131,22 @@ To register a custom font and supported variants, use the mixin `oFontsDefineCus
 In this example we register a custom font "MyFont" with sans fallback `MyFont, sans`. We configure this font to allow two variants (a normal style of either bold or regular weight). In the mixin content we include the `@font-face` declaration to load these fonts from our own source.
 ```scss
 @include oFontsDefineCustomFont('MyFont, sans', (
-    (weight: regular, style: normal),
-    (weight: bold, style: normal)
+	(weight: regular, style: normal),
+	(weight: bold, style: normal)
 )) {
-    @font-face {
-        src: url('MyFont-Thin.woff2') format('woff2'), url('MyFont-Thin.woff') format('woff');
-        font-family: MyFont;
-        font-weight: 100;
-        font-style: normal;
-    }
-    @font-face{
-        src: url('MyFont-Bold.woff2') format('woff2'), url('MyFont-Bold.woff') format('woff');
-        font-family: MyFont;
-        font-weight: 700;
-        font-style: normal;
-    }
-};
+	@font-face {
+		src: url('MyFont-Thin.woff2') format('woff2'), url('MyFont-Thin.woff') format('woff');
+		font-family: MyFont;
+		font-weight: 100;
+		font-style: normal;
+	}
+	@font-face {
+		src: url('MyFont-Bold.woff2') format('woff2'), url('MyFont-Bold.woff') format('woff');
+		font-family: MyFont;
+		font-weight: 700;
+		font-style: normal;
+	}
+}
 ```
 
 ### Get a font family for a font name
@@ -183,8 +182,8 @@ To check if a font weight/style has been output in your project use `oFontsVaria
 // including fonts in project
 @include oFonts($opts: (
 	'metric': (
-        ('weight': 'medium', 'style': 'normal')
-    ),
+		('weight': 'medium', 'style': 'normal')
+	),
 ));
 
 
@@ -200,13 +199,13 @@ _Note: If your project has multiple Sass entry points call `oFontsVariantsInclud
 
 Note: font files are contained in a separate, private repository ([o-fonts-assets](https://github.com/Financial-Times/o-fonts-assets)).
 
-1. Open `src/scss/_variables.scss` and update the `$o-fonts-path` variable to the release of [o-fonts-assets](https://github.com/Financial-Times/o-fonts-assets) which includes your new font.
+1.  Open `src/scss/_variables.scss` and update the `$o-fonts-path` variable to the release of [o-fonts-assets](https://github.com/Financial-Times/o-fonts-assets) which includes your new font.
 
-2. Add the font family name (if it's an entirely new family) and the variant styles to the private `$_o-fonts-families` map.
+2.  Add the font family name (if it's an entirely new family) and the variant styles to the private `$_o-fonts-families` map.
 
-3. If adding an entirely new font, add a new option to the `oFonts` mixin. To include the new [font by default](#fonts-included-by-default) or with [recommended fonts](#recommended-fonts)  (see `$_o-fonts-default` and `$_o-fonts-recommended`).
+3.  If adding an entirely new font, add a new option to the `oFonts` mixin. To include the new [font by default](#fonts-included-by-default) or with [recommended fonts](#recommended-fonts)  (see `$_o-fonts-default` and `$_o-fonts-recommended`).
 
-4. Finally, update the demos (see `origami.json`).
+4.  Finally, update the demos (see `origami.json`).
 
 ## Migration
 
@@ -223,7 +222,7 @@ State | Major Version | Last Minor Release | Migration guide |
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-fonts/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-----
+---
 
 ## Licence
 
